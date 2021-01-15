@@ -23,7 +23,6 @@ Możliwe jest także uruchomienie aplikacji z wykorzystaniem środowiska program
 Wszystkie niezbędne informacje podano w komentarzach do poszczególnych klas i metod.
 
 ## Dokumentacja API PBN
-- [Strony pomocy (środowisko testowe)](https://pbn-micro-alpha.opi.org.pl/centrum-pomocy/baza-wiedzy-kategoria/masowe-interfejsy-wymiany-danych/)
+- [Centrum pomocy](https://pbn.nauka.gov.pl/centrum-pomocy/baza-wiedzy-kategoria/masowe-interfejsy-wymiany-danych/)
 - [Opis końcówek (środowisko testowe)](https://pbn-micro-alpha.opi.org.pl/api/)
-- [Strony pomocy (środowisko produkcyjne)](https://pbn.nauka.gov.pl/centrum-pomocy/baza-wiedzy-kategoria/masowe-interfejsy-wymiany-danych/)
 - [Opis końcówek (środowisko produkcyjne)](https://pbn.nauka.gov.pl/api/)
