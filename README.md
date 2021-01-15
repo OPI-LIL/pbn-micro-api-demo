@@ -17,7 +17,12 @@ mvn clean install
 ```console
 java -jar -Dspring.config.location={ścieżka do folderu z plikiem application.properties}/application.properties {ścieżka do folderu z plikiem jar}/pbn-micro-api-demo.jar
 ```
+
 Możliwe jest także uruchomienie aplikacji z wykorzystaniem środowiska programistycznego.
+
+Po uruchomieniu aplikcja będzie dostępna pod adresem [http://localhost:8899/](http://localhost:8899/),
+chyba że w pliku application.properties wprowadzone zostaną inne wartości dla kluczy
+server.servlet.context-path i server.port.
 
 ## Informacje o aplikacji
 Wszystkie niezbędne informacje podano w komentarzach do poszczególnych klas i metod.
