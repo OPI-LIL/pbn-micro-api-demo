@@ -1,0 +1,110 @@
+{
+  "authors": [
+    {
+      "affiliations": [
+        "c046255a-281c-4f2c-a050-c6f452760c33"
+      ],
+      "givenNames": "Tomasz",
+      "lastName": "Chodowicz",
+      "objectId": "5e7094c1878c28a0473c3332",
+      "versionHash": "6c2c6bc1-3ae7-4728-bbb7-2d3828a90c02"
+    }
+  ],
+  "conferenceEdition": {
+    "city": "Sopot",
+    "country": "PL",
+    "endDate": "2016-05-24T22:00:00.000Z",
+    "fullName": "Sustainable transport development, innovation and technology",
+    "objectId": "5ebff079ad49b31ccebd706b",
+    "shortName": "TranSopot 2016",
+    "startDate": "2016-05-22T22:00:00.000Z",
+    "versionHash": "280bec65-c26a-4137-ace9-11e209b9ca68"
+  },
+  "conferenceSeries": {
+    "fullName": "Sustainable transport development, innovation and technology",
+    "objectId": "5ebff079ad49b31ccebd706a",
+    "shortName": "TranSopot 2016",
+    "versionHash": "74079ea9-c2ab-4460-a79a-927434d3a382"
+  },
+  "doi": "10.1093/gmo/9781561592630.article.15443",
+  "institutions": {
+    "c046255a-281c-4f2c-a050-c6f452760c33": {
+      "addressCity": "Warszawa",
+      "addressCountry": "PL",
+      "addressPostalCode": "00-608",
+      "addressStreet": "Al. Niepodległości",
+      "addressStreetNumber": "188 B",
+      "email": "opi@opi.org.pl",
+      "name": "Ośrodek Przetwarzania Informacji — Państwowy Instytut Badawczy",
+      "objectId": "5e709193878c28a04737eec4",
+      "polonUuid": "3467ab3b-6b6a-4c58-84bc-d41a4af88b72",
+      "rootName": "Ośrodek Przetwarzania Informacji — Państwowy Instytut Badawczy",
+      "versionHash": "eeb2094b-0076-4987-afb5-2711003c2431",
+      "website": "http://www.opi.org.pl"
+    }
+  },
+  "issue": "1",
+  "journal": {
+    "issn": "0102-8650",
+    "issue": {
+      "number": "1",
+      "objectId": "5ffdb36552679a25365e37da",
+      "publishedYear": 2020,
+      "volume": "2",
+      "year": "2020",
+      "versionHash": "c8857727-01a9-4d0f-9fd8-93979ca88fdb"
+    },
+    "objectId": "5e6f7d49878c285145476df1",
+    "title": "Acta Cirurgica Brasileira",
+    "versionHash": "0366ce8a-3775-4b5d-ae38-d4fc4696dc2f"
+  },
+  "languageData": {
+    "abstracts": [
+      {
+        "lang": "pol",
+        "text": "Polish sculptor and performance artist. In 1959–65 he studied sculpture in Jerzy Jarnuszkiewicz’s studio at the Academy of Fine Arts, Warsaw, where he also taught from 1965. After mastering and consequently abandoning classical sculpture, Kowalski became fascinated by the Open Form concept of Oskar Hansen and attempts to adapt it to sculpture, becoming, during the mid-1960s, particularly interested in observing the behaviour and reactions of spectators (e.g. the Current Composition—Dynamic Environment, 1968). He also made suggestions, stemming from the Open Form proposals, for compositions that were impossible to realize (e.g. his plan for the town of Elbląg, 1967)."
+      }
+    ],
+    "keywords": [
+      {
+        "keywords": [
+          "test",
+          "testowy",
+          "demo"
+        ],
+        "lang": "pol"
+      }
+    ],
+    "otherTitles": [
+      {
+        "lang": "eng",
+        "title": "Test article 13.01.2020"
+      }
+    ]
+  },
+  "mainLanguage": "pol",
+  "openAccess": {
+    "license": "CC_BY_NC",
+    "modeArticle": "OTHER",
+    "months": 1,
+    "releaseDateMode": "AFTER_PUBLICATION",
+    "releaseDateMonth": "JANUARY",
+    "releaseDateYear": 2020,
+    "textVersion": "FINAL_AUTHOR"
+  },
+  "pagesFromTo": "20 - 30",
+  "publicUri": "http://ok.ok",
+  "statements": [
+    {
+      "disciplineId": 203,
+      "orcid": true,
+      "personObjectId": "5e7094c1878c28a0473c3332",
+      "statementDate": "2021-01-12T00:00:00.000Z",
+      "type": "AUTHOR"
+    }
+  ],
+  "title": "Testowy artykuł 13.01.2020",
+  "type": "ARTICLE",
+  "volume": "2",
+  "year": 2020
+}

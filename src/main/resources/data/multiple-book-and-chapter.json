@@ -1,0 +1,195 @@
+{
+  "publications": [
+    {
+      "authors": [
+        {
+          "affiliations": [
+            "561c3375-1d60-4add-aae1-cd755b4b709e"
+          ],
+          "givenNames": "Tomasz",
+          "lastName": "Chodowicz",
+          "objectId": "5e7094c1878c28a0473c3332",
+          "versionHash": "6c2c6bc1-3ae7-4728-bbb7-2d3828a90c02"
+        },
+        {
+          "affiliations": [
+            "f33cd44d-f2b8-477b-96b8-fa379cbd4109"
+          ],
+          "givenNames": "Jan",
+          "lastName": "Kowalski"
+        }
+      ],
+      "doi": "10.3928/00220124-20150518-15",
+      "editionNumber": "I",
+      "evaluationTranslationToPolish": true,
+      "institutions": {
+        "561c3375-1d60-4add-aae1-cd755b4b709e": {
+          "addressCity": "Warszawa",
+          "addressCountry": "PL",
+          "addressPostalCode": "00-608",
+          "addressStreet": "Al. Niepodległości",
+          "addressStreetNumber": "188 B",
+          "email": "opi@opi.org.pl",
+          "name": "Ośrodek Przetwarzania Informacji — Państwowy Instytut Badawczy",
+          "objectId": "5e709193878c28a04737eec4",
+          "polonUuid": "3467ab3b-6b6a-4c58-84bc-d41a4af88b72",
+          "rootName": "Ośrodek Przetwarzania Informacji — Państwowy Instytut Badawczy",
+          "versionHash": "eeb2094b-0076-4987-afb5-2711003c2431",
+          "website": "http://www.opi.org.pl"
+        },
+        "f33cd44d-f2b8-477b-96b8-fa379cbd4109": {
+          "addressCity": "Radom",
+          "addressCountry": "PL",
+          "addressPostalCode": "22-222",
+          "addressStreet": "ul Radomska",
+          "addressStreetNumber": "1",
+          "email": "sekretariat@utw.edu.pl",
+          "name": "Uniwersytet Trzeciego Wieku",
+          "rootName": "Uniwersytet Trzeciego Wieku",
+          "website": "http://www.utw.edu.pl"
+        }
+      },
+      "isbn": "978-3-642-87664-6",
+      "languageData": {
+        "abstracts": [
+          {
+            "lang": "pol",
+            "text": "Raz dwa trzy cztery pięć"
+          },
+          {
+            "lang": "eng",
+            "text": "One two three four five"
+          }
+        ],
+        "keywords": [
+          {
+            "keywords": [
+              "raz",
+              "dwa",
+              "trzy",
+              "cztery",
+              "pięć"
+            ],
+            "lang": "pol"
+          },
+          {
+            "keywords": [
+              "one",
+              "two",
+              "three",
+              "four",
+              "five"
+            ],
+            "lang": "eng"
+          }
+        ],
+        "otherTitles": [
+          {
+            "lang": "eng",
+            "title": "Test book 13.01.2020"
+          }
+        ]
+      },
+      "mainLanguage": "pol",
+      "numberInSeries": "33",
+      "openAccess": {
+        "license": "CC_BY_SA",
+        "modeMonograph": "PUBLISHER_WEBSITE",
+        "releaseDate": "2021-01-13T00:00:00.000Z",
+        "releaseDateMode": "AT_PUBLICATION",
+        "textVersion": "FINAL_PUBLISHED"
+      },
+      "originalLanguage": "eng",
+      "pages": 300,
+      "publicUri": "http://www.utw.edu.pl/publikacje/seria-testowa/33",
+      "publicationPlace": "Radom",
+      "publisher": {
+        "name": "Uniwersytet Technologiczno-Humanistyczny im. Kazimierza Pułaskiego w Radomiu",
+        "objectId": "5d35987c878c28139f4eb908",
+        "versionHash": "14d814cb-8e42-4567-a1d8-e87f333df9ae"
+      },
+      "series": "seria testowa",
+      "statements": [
+        {
+          "disciplineId": 203,
+          "orcid": true,
+          "personObjectId": "5e7094c1878c28a0473c3332",
+          "statementDate": "2021-01-13T00:00:00.000Z",
+          "type": "AUTHOR"
+        }
+      ],
+      "title": "Testowa książka 13.01.2020",
+      "translation": true,
+      "translationEditors": [
+        {
+          "affiliations": [
+            "f33cd44d-f2b8-477b-96b8-fa379cbd4109"
+          ],
+          "givenNames": "Anna",
+          "lastName": "Nowak"
+        }
+      ],
+      "translators": [
+        {
+          "affiliations": [
+            "f33cd44d-f2b8-477b-96b8-fa379cbd4109"
+          ],
+          "givenNames": "John",
+          "lastName": "Smith"
+        }
+      ],
+      "type": "BOOK",
+      "year": 2020
+    },
+    {
+      "authors": [
+        {
+          "affiliations": [
+            "78fd9f00-144f-4d58-a611-47c71dc0a106"
+          ],
+          "givenNames": "Tomasz",
+          "lastName": "Chodowicz",
+          "objectId": "5e7094c1878c28a0473c3332",
+          "versionHash": "6c2c6bc1-3ae7-4728-bbb7-2d3828a90c02"
+        }
+      ],
+      "book": {
+        "isbn": "9788311141049",
+        "objectId": "5e716fd546e0fb0001cdc2da",
+        "title": "Książka testowa wieloautorska",
+        "translation": false,
+        "versionHash": "6823292d-98d0-42d4-bf60-0ec50da75f3d",
+        "year": 2017
+      },
+      "institutions": {
+        "78fd9f00-144f-4d58-a611-47c71dc0a106": {
+          "addressCity": "Warszawa",
+          "addressCountry": "PL",
+          "addressPostalCode": "00-608",
+          "addressStreet": "Al. Niepodległości",
+          "addressStreetNumber": "188 B",
+          "email": "opi@opi.org.pl",
+          "name": "Ośrodek Przetwarzania Informacji — Państwowy Instytut Badawczy",
+          "objectId": "5e709193878c28a04737eec4",
+          "polonUuid": "3467ab3b-6b6a-4c58-84bc-d41a4af88b72",
+          "rootName": "Ośrodek Przetwarzania Informacji — Państwowy Instytut Badawczy",
+          "versionHash": "eeb2094b-0076-4987-afb5-2711003c2431",
+          "website": "http://www.opi.org.pl"
+        }
+      },
+      "mainLanguage": "pol",
+      "pagesFromTo": "10 - 50",
+      "statements": [
+        {
+          "disciplineId": 203,
+          "orcid": true,
+          "personObjectId": "5e7094c1878c28a0473c3332",
+          "statementDate": "2021-01-13T00:00:00.000Z",
+          "type": "AUTHOR"
+        }
+      ],
+      "title": "Testowy rozdział 13.01.2020",
+      "type": "CHAPTER"
+    }
+  ]
+}

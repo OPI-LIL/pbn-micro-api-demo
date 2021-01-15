@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div>
+    <a th:attr="href=${oneTimeTokenUrl}">Pobierz token użytkownika</a>
+</div>
+
+<div th:if="${hasToken}">
+    <select id="select-controller" onchange="onControllerChange()">
+        <option value="">Wybierz kontroler</option>
+        <option value="author-profile">Profil Autora</option>
+        <option value="conferences">Konferencje</option>
+        <option value="dictionary">Słowniki</option>
+        <option value="institution">Instytucje</option>
+        <option value="institution-profile">Profil Instytucji</option>
+        <option value="journals">Czasopisma</option>
+        <option value="person">Osoby</option>
+        <option value="publications">Publikacje</option>
+        <option value="publishers">Wydawnictwa</option>
+    </select>
+</div>
+
+<div th:if="${hasToken}">
+    <select id="select-endpoint" onchange="onEndpointChange()">
+        <option value="">Wybierz końcówkę</option>
+    </select>
+</div>
+
+<div th:if="${hasToken}">
+    <button onclick="execute()">Wyślij żądanie</button>
+</div>
+
+<div id="request"></div>
+
+<div id="response"></div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
+
+<script>
+    function onControllerChange() {
+        document.getElementById("request").innerHTML = "";
+        document.getElementById("response").innerHTML = "";
+        let options;
+        switch ($("#select-controller").val()) {
+            case "author-profile": {
+                options = "<option value=\"\">Wybierz końcówkę</option>\n" +
+                    "<option value=\"GET profile-by-id\">Pobierz profil wg id</option>";
+                break;
+            }
+            case "conferences": {
+                options = "<option value=\"\">Wybierz końcówkę</option>\n" +
+                    "<option value=\"GET extended-metadata-by-id\">Pobierz rozszerzone metadane wg id</option>\n" +
+                    "<option value=\"GET editions\">Pobierz edycje wg id serii</option>\n" +
+                    "<option value=\"GET metadata-by-id\">Pobierz metadane wg id</option>\n" +
+                    "<option value=\"GET page-mnisw\">Pobierz stronę (tylko MNiSW)</option>\n" +
+                    "<option value=\"GET page-by-status\">Pobierz stronę wg statusu</option>\n" +
+                    "<option value=\"GET metadata-by-version\">Pobierz metadane wg wersji</option>";
+                break;
+            }
+            case "dictionary": {
+                options = "<option value=\"\">Wybierz końcówkę</option>\n" +
+                         "<option value=\"GET countries\">Pobierz kraje</option>\n" +
+                         "<option value=\"GET disciplines\">Pobierz dyscypliny</option>\n" +
+                         "<option value=\"GET languages\">Pobierz języki</option>";
+                break;
+            }
+            case "institution": {
+                options = "<option value=\"\">Wybierz końcówkę</option>\n" +
+                    "<option value=\"GET extended-metadata-by-id\">Pobierz rozszerzone metadane wg id</option>\n" +
+                    "<option value=\"GET metadata-by-id\">Pobierz metadane wg id</option>\n" +
+                    "<option value=\"GET page-by-status\">Pobierz stronę wg statusu</option>\n" +
+                    "<option value=\"GET metadata-by-polon-id\">Pobierz metadane wg POL-on ID</option>\n" +
+                    "<option value=\"GET page-polon\">Pobierz stronę (tylko POL-on)</option>\n" +
+                    "<option value=\"GET metadata-by-polon-uid\">Pobierz metadane wg POL-on UID</option>\n" +
+                    "<option value=\"GET metadata-by-version\">Pobierz metadane wg wersji</option>";
+                break;
+            }
+            case "institution-profile": {
+                options = "<option value=\"\">Wybierz końcówkę</option>\n" +
+                    "<option value=\"GET publications-page\">Pobierz stronę publikacji</option>\n" +
+                    "<option value=\"GET statements-page\">Pobierz stronę oświadczeń</option>\n";
+                break;
+            }
+            case "journals": {
+                options = "<option value=\"\">Wybierz końcówkę</option>\n" +
+                    "<option value=\"GET extended-metadata-by-id\">Pobierz rozszerzone metadane wg id</option>\n" +
+                    "<option value=\"GET metadata-by-id\">Pobierz metadane wg id</option>\n" +
+                    "<option value=\"GET page-mnisw\">Pobierz stronę (tylko MNiSW)</option>\n" +
+                    "<option value=\"GET page-by-status\">Pobierz stronę wg statusu</option>\n" +
+                    "<option value=\"GET metadata-by-version\">Pobierz metadane wg wersji</option>";
+                break;
+            }
+            case "person": {
+                options = "<option value=\"\">Wybierz końcówkę</option>\n" +
+                    "<option value=\"GET extended-metadata-by-id\">Pobierz rozszerzone metadane wg id</option>\n" +
+                    "<option value=\"GET employees-by-institution-id\">Pobierz zatrudnionych wg id instytucji</option>\n" +
+                    "<option value=\"GET metadata-by-natural-id\">Pobierz metadane wg naturalnego id</option>\n" +
+                    "<option value=\"GET page-by-status\">Pobierz stronę wg statusu</option>\n" +
+                    "<option value=\"GET metadata-by-polon-uid\">Pobierz metadane wg POL-on UID</option>\n" +
+                    "<option value=\"GET metadata-by-version\">Pobierz metadane wg wersji</option>";
+                break;
+            }
+            case "publications": {
+                options = "<option value=\"\">Wybierz końcówkę</option>\n" +
+                    "<option value=\"POST add-or-edit-single-publication\">Dodaj lub zmień pojedynczą publikację</option>\n" +
+                    "<option value=\"POST add-or-edit-multiple-publications\">Dodaj lub zmień wiele publikacji</option>\n" +
+                    "<option value=\"GET metadata-by-id\">Pobierz metadane wg id</option>\n" +
+                    "<option value=\"GET metadata-by-doi\">Pobierz metadane wg DOI</option>\n" +
+                    "<option value=\"GET extended-metadata-by-id\">Pobierz rozszerzone metadane wg id</option>\n" +
+                    "<option value=\"GET page-by-status\">Pobierz stronę wg statusu</option>\n" +
+                    "<option value=\"GET metadata-by-version\">Pobierz metadane wg wersji</option>";
+                break;
+            }
+            case "publishers": {
+                options = "<option value=\"\">Wybierz końcówkę</option>\n" +
+                    "<option value=\"GET extended-metadata-by-id\">Pobierz rozszerzone metadane wg id</option>\n" +
+                    "<option value=\"GET metadata-by-id\">Pobierz metadane wg id</option>\n" +
+                    "<option value=\"GET page-mnisw\">Pobierz stronę (tylko MNiSW)</option>\n" +
+                    "<option value=\"GET page-mnisw-yearlist\">Pobierz stronę z punktacją (tylko MNiSW)</option>\n" +
+                    "<option value=\"GET page-by-status\">Pobierz stronę wg statusu</option>\n" +
+                    "<option value=\"GET metadata-by-version\">Pobierz metadane wg wersji</option>";
+                break;
+            }
+            default: {
+                options = "<option value=\"\">Wybierz końcówkę</option>";
+            }
+        }
+        document.getElementById("select-endpoint").innerHTML = options;
+    }
+
+    function onEndpointChange() {
+        let controller = $("#select-controller").val();
+        let endpoint = $("#select-endpoint").val();
+        if (controller === "publications" && (endpoint === "POST add-or-edit-single-publication" || endpoint === "POST add-or-edit-multiple-publications")) {
+            document.getElementById("request").innerHTML = "<textarea id=\"request-textarea\" rows=\"50\" cols=\"100\"></textarea>";
+        } else {
+            document.getElementById("request").innerHTML = "";
+        }
+        document.getElementById("response").innerHTML = "";
+    }
+
+    function execute() {
+        document.getElementById("response").innerHTML = "";
+        let controller = $("#select-controller").val();
+        let endpoint = $("#select-endpoint").val().split(" ");
+        let requestData = {
+            url: `/${controller}/${endpoint[1]}`,
+            type: endpoint[0],
+            success: data => document.getElementById("response").innerHTML = JSON.stringify(data, null, 6).replace(/\n( *)/g, (match, p1) => '<br>' + '&nbsp;'.repeat(p1.length)),
+            error: error => document.getElementById("response").innerHTML = JSON.stringify(error.responseJSON, null, 6).replace(/\n( *)/g, (match, p1) => '<br>' + '&nbsp;'.repeat(p1.length)),
+        }
+        if (requestData.type === "POST") {
+            requestData.data = $("#request-textarea").val();
+            requestData.contentType = "application/json; charset=utf-8";
+        }
+        $.ajax(requestData);
+    }
+</script>
+
+</body>
+</html>
