@@ -16,7 +16,7 @@ import java.net.URI;
 
 // Serwis zawiera metody wykonujące żądania REST do poszczególnych końcówek API PBN z grupy institution-profile-controller (wyłączenie żądania typu GET).
 // We wszystkich przypadkach typu: String ... = environment.getProperty("..."), tworzona jest zmienna o nazwie zgodnej z nazwą parametru ścieżki
-// lub parameteru zapytania, podanymi w dokumentacji API PBN, przy czym arggumentem jest klucz z pliku application.properties, a zmienna uzyskuje wartość
+// lub parameteru zapytania, podanymi w dokumentacji API PBN, przy czym argumentem jest klucz z pliku application.properties, a zmienna uzyskuje wartość
 // zgodną z wartością przypisaną do tego klucza w tym pliku. Tak utworzone zmienne wykorzystywane są do utworzenia właściwego adresu URI, zgodnego
 // z dokumentacją API PBN. Przy utworzeniu adresu wykorzystywana jest także zmienna baseApiUri, której wartość podana jest w pliku application.properties
 // pod kluczem base.api.uri. Wartość tą trzeba dostosować, np. dla środowiska alpha należy podać https://pbn-micro-alpha.opi.org.pl/api
@@ -39,7 +39,7 @@ public class InstitutionProfileService {
 
 //    Metoda służy do wykonania żądania GET na końcówkę /v1/institutionProfile/publications/page
     public ResponseEntity<String> getPublicationsPage() {
-        HttpHeaders requestHeaders = tokenService.getHeaders();
+        HttpHeaders requestHeaders = tokenService.getHeadersWithUserToken();
         String page = environment.getProperty("institution.profile.page");
         String size = environment.getProperty("institution.profile.size");
         URI uri = UriComponentsBuilder.fromUriString(String.format("%s/v1/institutionProfile/publications/page?page=%s&size=%s", baseApiUri, page, size)).build().toUri();
@@ -51,7 +51,7 @@ public class InstitutionProfileService {
 
 //    Metoda służy do wykonania żądania GET na końcówkę /v1/institutionProfile/publications/page/statements
     public ResponseEntity<String> getStatementsPage() {
-        HttpHeaders requestHeaders = tokenService.getHeaders();
+        HttpHeaders requestHeaders = tokenService.getHeadersWithUserToken();
         String page = environment.getProperty("institution.profile.page");
         String size = environment.getProperty("institution.profile.size");
         URI uri = UriComponentsBuilder.fromUriString(String.format("%s/v1/institutionProfile/publications/page/statements?page=%s&size=%s", baseApiUri, page, size)).build().toUri();

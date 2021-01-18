@@ -41,10 +41,11 @@ public class TokenService {
 //    (1) o nazwie „X-App-Id” i wartości zmiennej applicationId
 //    (2) o nazwie „X-App-Token” i wartości zmiennej applicationToken,
 //    a także ciałem typu json o wartości: {"oneTimeToken": oneTimeToken}, gdzie zmienna oneTimeToken oznacza uzyskany wcześniej token jednorazowy.
-//    Wartość applicationId podana jest w pliku application.properties pod kluczem application.id. Odpowiada ona identyfikatorowi aplikacji użytkownika, podanemu przy rejestracji roli Menadżer aplikacji w PBN.
-//    Wartość applicationToken podana jest w pliku application.properties pod kluczem application.token. Odpowiada ona tokenowi aplikacji użytkownika, uzyskanemu przy rejestracji roli Menadżer aplikacji w PBN.
+//    Wartość applicationId (X-App-Id) podana jest w pliku application.properties pod kluczem application.id. Odpowiada ona identyfikatorowi aplikacji użytkownika, podanemu przy rejestracji roli Menadżer aplikacji w PBN.
+//    Wartość applicationToken (X-App-Token) podana jest w pliku application.properties pod kluczem application.token. Odpowiada ona tokenowi aplikacji użytkownika, uzyskanemu przy rejestracji roli Menadżer aplikacji w PBN.
 //    Wartość baseAuthUrl podana jest w pliku application.properties pod kluczem base.auth.uri. Wartość tą trzeba dostosować, np. dla środowiska alpha należy podać https://pbn-micro-alpha.opi.org.pl/auth
-//    Odpowiedź na żądanie zawiera ciało typu json, w którym pod kluczem X-User-Token zawarty jest token użytkownika. Zostaje on zapisany joko pole niniejszego serwis, w celu późniejszego wykorzystania.
+//    Odpowiedź na żądanie zawiera ciało typu json, w którym pod kluczem X-User-Token zawarty jest token użytkownika. Zostaje on zapisany joko pole niniejszego serwisu, w celu późniejszego wykorzystania.
+//    W przypadku wystąpienia błędu proszę o sprawdzenie poprawności parametrów w pliku application.properties (application.id, application.token, base.auth.uri).
     public void getUserToken(String oneTimeToken) throws JsonProcessingException {
         HttpHeaders requestHeaders = new HttpHeaders();
         requestHeaders.add("X-App-Id", applicationId);
@@ -60,17 +61,29 @@ public class TokenService {
         userToken = Optional.ofNullable(responseEntity.getBody()).map(body -> body.get("X-User-Token")).orElseThrow();
     }
 
-//    Metoda dostarcza innym serwisom obiekt reprezentujący nagłówki dodawane do każdego żądania wysyłanego do API PBN. Nagłówki są następujące:
+//    Metoda dostarcza innym serwisom obiekt reprezentujący nagłówki dodawane do każdego żądania wysyłanego do API PBN.
+//    Nagłówki są następujące:
 //    (1) o nazwie „X-App-Id” i wartości zmiennej applicationId
 //    (2) o nazwie „X-App-Token” i wartości zmiennej applicationToken,
-//    (2) o nazwie „X-User-Token” i wartości zmiennej userToken.
-//    Wartość applicationId podana jest w pliku application.properties pod kluczem application.id. Odpowiada ona identyfikatorowi aplikacji użytkownika, podanemu przy rejestracji roli Menadżer aplikacji w PBN.
-//    Wartość applicationToken podana jest w pliku application.properties pod kluczem application.token. Odpowiada ona tokenowi aplikacji użytkownika, uzyskanemu w wyniku rejestracji roli Menadżer aplikacji w PBN.
-//    Wartość userToken została uzyskana za pomocą metody getUserToken (powyżej), a następnie zapisana jako pole niniejszego serwisu.
+//    Wartość applicationId (X-App-Id) podana jest w pliku application.properties pod kluczem application.id. Odpowiada ona identyfikatorowi aplikacji użytkownika, podanemu przy rejestracji roli Menadżer aplikacji w PBN.
+//    Wartość applicationToken (X-App-Token) podana jest w pliku application.properties pod kluczem application.token. Odpowiada ona tokenowi aplikacji użytkownika, uzyskanemu w wyniku rejestracji roli Menadżer aplikacji w PBN.
     public HttpHeaders getHeaders() {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("X-App-Id", applicationId);
         httpHeaders.add("X-App-Token", applicationToken);
+        return httpHeaders;
+    }
+
+//    Metoda dostarcza innym serwisom obiekt reprezentujący nagłówki dodawane do każdego żądania wysyłanego do API PBN, które wymaga dodatkowo X-User-Token.
+//    Nagłówki są następujące:
+//    (1) o nazwie „X-App-Id” i wartości zmiennej applicationId
+//    (2) o nazwie „X-App-Token” i wartości zmiennej applicationToken,
+//    (2) o nazwie „X-User-Token” i wartości zmiennej userToken.
+//    Wartość applicationId (X-App-Id) podana jest w pliku application.properties pod kluczem application.id. Odpowiada ona identyfikatorowi aplikacji użytkownika, podanemu przy rejestracji roli Menadżer aplikacji w PBN.
+//    Wartość applicationToken (X-App-Token) podana jest w pliku application.properties pod kluczem application.token. Odpowiada ona tokenowi aplikacji użytkownika, uzyskanemu w wyniku rejestracji roli Menadżer aplikacji w PBN.
+//    Wartość userToken (X-User-Token) została uzyskana za pomocą metody getUserToken (powyżej), a następnie zapisana jako pole niniejszego serwisu.
+    public HttpHeaders getHeadersWithUserToken() {
+        HttpHeaders httpHeaders = getHeaders();
         httpHeaders.add("X-User-Token", userToken);
         return httpHeaders;
     }
