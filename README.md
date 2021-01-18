@@ -35,8 +35,7 @@ server.servlet.context-path i server.port.
 3. Logujemy się w tej samej przeglądarce do systemu PBN, z któym chcemy się integrować
 4. Przechodzimy pod link na stronie oznaczony "Pobierz token użytkownika".
 5. Zostajemy przeniesieni na adres zwrotny aplikacji instytucji, w ramach której wystawienia tokenu żądano. Do adresu doklejony zostanie jednorazowy kod, który służy do pozyskania właściwego tokenu uwierzytelniającego (tokenu użytkownika)
-6. Przechodzimy pod adres końcówki, która jest odpowiedzialna za pozyskanie tokenu użytkownika. Do adresu doklejamy pozyskany jednorazowy kod. Przykładowe zapytanie dla domyślnych ustawień: [http://localhost:8899/one-time-token?ott=c69df69c-f1da-4404-b3ea-4031b7399c45](http://localhost:8899/one-time-token?ott=)
- UWAGA ta operacja wygeneruje nowy token użytkownika, stary token przestanie być aktywny
+6. Przechodzimy pod adres końcówki, która jest odpowiedzialna za pozyskanie tokenu użytkownika. Do adresu doklejamy pozyskany jednorazowy kod. Przykładowe zapytanie dla domyślnych ustawień: [http://localhost:8899/one-time-token?ott=c69df69c-f1da-4404-b3ea-4031b7399c45](http://localhost:8899/one-time-token?ott=) <br />UWAGA ta operacja wygeneruje nowy token użytkownika, stary token przestanie być aktywny
 7. Zostajemy przeniesieni na stronę, na której możemy przetestować końcówki API PBN
 
 ## Informacje o aplikacji
@@ -45,21 +44,21 @@ Struktura projektu:
 ```
 .
 |-- java\pl\org\opi\pbn\micro\api\demo
-|   |-- authorprofile - pliki obsługi author-profile-controller 
-|   |-- conferences - pliki obsługi conferences-controller
-|   |-- dictionary - pliki obsługi dictionary-controller
-|   |-- home - pliki obsługi strony głównej
-|   |-- institution - pliki obsługi institution-controller
-|   |-- institutionprofile - pliki obsługi institution-profile-controller
-|   |-- journals - pliki obsługi journals-controller
-|   |-- person - pliki obsługi person-controller
-|   |-- publications - pliki obsługi publications-controller
-|   |-- publishers - pliki obsługi publishers-controller
-|   |-- token - pliki obsługi pozyskania tokenu
+|   |-- authorprofile               - pliki obsługi author-profile-controller 
+|   |-- conferences                 - pliki obsługi conferences-controller
+|   |-- dictionary                  - pliki obsługi dictionary-controller
+|   |-- home                        - pliki obsługi strony głównej
+|   |-- institution                 - pliki obsługi institution-controller
+|   |-- institutionprofile          - pliki obsługi institution-profile-controller
+|   |-- journals                    - pliki obsługi journals-controller
+|   |-- person                      - pliki obsługi person-controller
+|   |-- publications                - pliki obsługi publications-controller
+|   |-- publishers                  - pliki obsługi publishers-controller
+|   |-- token                       - pliki obsługi pozyskania tokenu
 `-- resources
     |-- data
-    |   |-- multiple-book-and-chapter.json - przykładowy argument dla /v1/publications
-    |   |-- single-article.json - przykładowy argument dla /v1/publications/import
+    |   |-- multiple-book-and-chapter.json  - przykładowy argument dla /v1/publications
+    |   |-- single-article.json             - przykładowy argument dla /v1/publications/import
     |-- templates
     `-- application.properties
 ```
